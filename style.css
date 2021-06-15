@@ -33,7 +33,7 @@
       font-size:15px;
   }
 
-  .start-btn {
+  .start-btn, .back-btn, .clear-btn {
     margin-top: 30px;
     background-color: rgb(236, 184, 236);
     padding:10px;
@@ -41,7 +41,35 @@
     border-radius: 3px;
   }
 
-  .start-btn:hover {
+  .start-btn:hover, .back-btn:hover, .clear-btn:hover {
       background-color: rgb(98, 248, 98);
   }
+
+  .scores-screen {
+    text-align:center;
+    padding:50px;
+  }
+
+  .scores-screen h1  {
+      font-size:30px;
+      margin-bottom:30px;
+  }
+
+  .scores {
+      font-size:25px;
+  }
+
+  #score-1 {
+      background-color: rgb(98, 248, 98);
+      padding:10px;
+      border-radius:5px;
+  }
+
+  #score-2 {
+      background-color: thistle;
+      padding:10px;
+      border-radius:5px;
+  }
+
+  
 

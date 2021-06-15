@@ -1,0 +1,47 @@
+/* style sheet for coding quiz, TWH, 6-15-21 */
+
+/* Resets the box size of every element */
+* {
+    margin: 10px;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Arial;
+  }
+
+  .highscores {
+    margin-left: 50px;
+  }
+
+  .timer {
+    text-align:right;
+    margin-top:-15px;
+    margin-right: 50px;
+  }
+
+  .start-screen {
+    text-align:center;
+  }
+
+  .start-screen h1 {
+      text-align:center;
+      margin-top:80px;
+      font-size:30px;
+  }
+
+  .start-screen p {
+      margin-top:30px;
+      font-size:15px;
+  }
+
+  .start-btn {
+    margin-top: 30px;
+    background-color: rgb(236, 184, 236);
+    padding:10px;
+    border: solid 3px black;
+    border-radius: 3px;
+  }
+
+  .start-btn:hover {
+      background-color: rgb(98, 248, 98);
+  }
+

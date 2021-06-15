@@ -1,3 +1,5 @@
+<!--html for coding quiz, TWH, 6-15-21-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,23 +7,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--link to reset css-->
-    <link rel ="stylesheet" src="reset.css"/>
+    <link rel ="stylesheet" href="reset.css"/>
     <!--link to style css-->
-    <link rel ="stylesheet" src="style.css"/>
+    <link rel ="stylesheet" href="style.css"/>
     <title>Coding Quiz</title>
 </head>
 
 <body>
-    
+    <header>
+        <a class = "highscores" href = "">View High Scores</a>
+        <p class = "timer">Time Remaining: 10s</p>
+    </header>
 
+    <section class = "start-screen">
+        <h1>The Coding Quiz Challenge</h1>
+        <p>Try to answer the following code-related questions within the given time limit. <br> Keep in mind that each incorrect answer will penalize your time by 10 seconds and your final score by 10!</p>
+        <button class = "start-btn">Start Quiz</button>
+    </section>
 
-
-
-
-
-    
-<!--link to js-->
-<script src="script.js"></script> 
-
+    <!--link to js-->
+    <script src="script.js"></script> 
 </body>
+
 </html>

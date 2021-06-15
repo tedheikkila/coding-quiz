@@ -16,12 +16,14 @@
 <body>
     <header>
         <a class = "highscores" href = "scores.html" target="_blank">View High Scores</a>
-        <p class = "timer">Time Remaining: 30s</p>
+        <p id = "timer"></p>
     </header>
 
     <section class = "start-screen">
         <h1>The Coding Quiz Challenge</h1>
-        <p>Try to answer the following code-related questions within the given time limit. <br> Keep in mind that each incorrect answer will penalize your time by 10 seconds and your final score by 10!</p>
+        <p>Try to answer the following code-related questions within the given time limit. <br> 
+            A correct answer will increase your score by 10. Answering incorrectly subtracts 5. <br>
+            You have 30 seconds. Each incorrect answer will subtract 5 seconds from your timer.</p>
         <button class = "start-btn">Start Quiz</button>
     </section>
 

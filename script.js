@@ -1,34 +1,65 @@
 // js file for coding quiz, TWH, 6-15-21
 
-// body global var
+// global selectors
 var body = document.body
-
-// instruction global var
 var instructions = document.querySelector(".instructions")
-
-//title global var
 var title = document.querySelector(".title")
+var score = document.querySelector(".score")
+var startButton = document.querySelector(".start-btn")
+var timerElement = document.querySelector(".timer")
+var answers = document.querySelector(".answers")
+var answer1 = document.querySelector(".answer1")
+var answer2 = document.querySelector(".answer2")
+var answer3 = document.querySelector(".answer3")
+var answer4 = document.querySelector(".answer4")
 
-//score global var
-var score = document.querySelector("#score")
+// global vars
+var timer;
+var timerCount;
 
-// startBtn global var
-var startBtn = document.querySelector(".start-btn");
+// quiz array w/questions and answers
+var quiz = []
 
-// timer global var
-var timer = document.getElementById('timer');
 
-// answer global var
-var answers = document.getElementById(".answers")
+// The init function is called when the page loads 
+function init() {
+    getScores();
+  }
+
+// This functions is used by init
+function getScores() {
+    // Get stored value from client storage, if it exists
+    var highScores = localStorage.getItem("winCount");
+    // If stored value doesn't exist, set counter to 0
+    if (highScores === null) {
+      highScores = 0;
+    } else {
+      // If a value is retrieved from client storage set the winCounter to that value
+      winCounter = storedWins;
+    }
+    //Render win count to page
+    win.textContent = winCounter;
+  }
+
+// The startGame function is called when the start button is clicked
+function startQuiz() {
+    timeLeft = 30;
+    // Prevents start button from being clicked when round is in progress
+    startButton.disabled = true;
+    startTimer()
+  }
+
+
+
+
 
 
 // timer that counts down from XX seconds; event initiated by clicking start btn
-startBtn.addEventListener("click", function start() {
-    function countdown() {
-        var timeLeft = 30;
-    
-        // uses the `setInterval()` method to call a function to be executed every 1 second
-        var timeInterval = setInterval(function () {
+function countdown() {
+    var timeLeft = 30;
+
+    // uses the `setInterval()` method to call a function to be executed every 1 second
+    var timeInterval = setInterval(function () {
         // As long as the `timeLeft` is greater than 1
         if (timeLeft > 1) {
             // set the `textContent` of `timeLeft` to show the remaining seconds
@@ -49,29 +80,35 @@ startBtn.addEventListener("click", function start() {
         }
         // ticks every 1 second
         }, 1000);
-    }
+        }
         // Displays the quiz's final timer message
         function displayQuizOver() {
             var quizOverMessage = "Time's up!"
             timer.textContent = quizOverMessage
         }
-   
+
         console.log(timer)
-        
-        countdown()
- }); 
+
+    countdown()
+ 
 
 // empties the start menu; readies for question 1 and the array of objects filled w/questions
-startBtn.addEventListener("click", function start() {
+startBtn.addEventListener("click", function start () {
+    function clear() {
     title.textContent = "";
     instructions.textContent = "";
     startBtn.remove();
     score.textContent = "";
+    }
+
+    clear()
+
 });
 
 // starts the quiz with each question as an object that is iterated until all questions are asked
+// question 1
 startBtn.addEventListener("click", function start() {
-    
+
     // creates element based on tag entered by user
     var question1 = document.createElement("h3");        
     var answer1 = document.querySelector("#answer1")
@@ -96,6 +133,7 @@ startBtn.addEventListener("click", function start() {
 
     // styles the question
     question1.setAttribute("style", "margin:auto; width:50%; text-align:center;");
+    // styles the answers with mouseover and mouseout events
     answer1.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
         answer1.addEventListener("mouseover", function() {
             answer1.style.backgroundColor = "rgb(98, 248, 98)";
@@ -129,7 +167,20 @@ startBtn.addEventListener("click", function start() {
         answer4.style.backgroundColor = "thistle";
         }); 
 
+    answer1.addEventListener("mouseover", function() {
+            answer1.style.backgroundColor = "rgb(98, 248, 98)";
+        });
+
+    // create listen events for clicks and run if statements for right or wrong selection
+    answer1.addEventListener("click", function() {
+       score = score - 5;
+       timeLeft = timeLeft - 5;
+       countdown(timeLeft);
+    });
 
 });
+
+// Attach event listener to start button to call startGame function on click
+startBtn.addEventListener("click", startQuiz);
 
 

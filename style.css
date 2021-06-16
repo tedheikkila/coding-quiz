@@ -12,7 +12,7 @@
     margin-left: 50px;
   }
 
-  #timer {
+  .timer {
     text-align:right;
     margin-top:-15px;
     margin-right: 50px;
@@ -59,19 +59,19 @@
       font-size:25px;
   }
 
-  #score-1 {
+  .score-1 {
       background-color: rgb(98, 248, 98);
       padding:10px;
       border-radius:5px;
   }
 
-  #score-2 {
+  .score-2 {
       background-color: thistle;
       padding:10px;
       border-radius:5px;
   }
 
-  #score {
+  .score {
       text-align:center;
       margin-top:20px;
   }

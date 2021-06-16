@@ -76,5 +76,16 @@
       margin-top:20px;
   }
 
+  .answers {
+    text-align:center;
+    display:none;
+  }
+
+  .answer1:hover, .answer2:hover, .answer3:hover, .answer4:hover {
+    background-color:rgb(98, 248, 98)
+  }
+
+
+
   
 

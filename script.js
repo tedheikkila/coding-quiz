@@ -1,5 +1,8 @@
 // js file for coding quiz, TWH, 6-15-21
 
+// body global var
+var body = document.body
+
 // instruction global var
 var instructions = document.querySelector(".instructions")
 
@@ -15,7 +18,7 @@ var startBtn = document.querySelector(".start-btn");
 // timer global var
 var timer = document.getElementById('timer');
 
-// timer that counts down from 30 seconds; event initiated by clicking start btn
+// timer that counts down from XX seconds; event initiated by clicking start btn
 startBtn.addEventListener("click", function start() {
     function countdown() {
         var timeLeft = 30;
@@ -54,8 +57,7 @@ startBtn.addEventListener("click", function start() {
         countdown()
  }); 
 
-// empties the start menu
-
+// empties the start menu; readies for question 1 and the array of objects filled w/questions
 startBtn.addEventListener("click", function start() {
     title.textContent = "";
     instructions.textContent = "";
@@ -63,6 +65,21 @@ startBtn.addEventListener("click", function start() {
     score.textContent = "";
 });
 
+// starts the quiz with each question as an object that is iterated until all questions are asked
+startBtn.addEventListener("click", function start() {
 
+    // creates element based on tag entered by user
+    var question = document.createElement("h3");
+
+    // adds text content to created tag
+    question.textContent = "Commonly used data types DO NOT include:"
+  
+    // appends tag as child of document body
+    body.appendChild(question);
+   
+    // styles the question
+    question.setAttribute("style", "margin:auto; width:50%; text-align:center;");
+
+});
 
 

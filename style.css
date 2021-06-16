@@ -55,9 +55,6 @@
       margin-bottom:30px;
   }
 
-  .scores {
-      font-size:25px;
-  }
 
   .score-1 {
       background-color: rgb(98, 248, 98);
@@ -73,7 +70,8 @@
 
   .score {
       text-align:center;
-      margin-top:20px;
+      margin-top:30px;
+      font-size:15px;
   }
 
   .answers {

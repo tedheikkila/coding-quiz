@@ -18,96 +18,98 @@ var timer;
 var timerCount;
 
 // quiz array w/questions and answers
-var quiz = []
+var quiz = [
+    question1 = "Commonly used data types DO NOT include: ",
+    answers1 = ["A. Strings", "B. Prompts", "C. Booleans", "D. Numbers"],
+    question2 = "The condition in an if/else statement is enclosed within ______.",
+    answer2 = ["A. Quotes", "B. Parentheses", "C. Square Brackets", "D. Curly Brackets"],
+    question3 = "A very useful tool used during development and debugging for printing content to the debugger is:",
+    answer3 = ["A. Javascript", "B. console.log", "C. terminal/bash", "D. Google"],
+]
 
 
-// The init function is called when the page loads 
+// init function called when the page loads (for getting scores local storage scores)
 function init() {
     getScores();
   }
 
-// This functions is used by init
+// gets high scores out of local storage
 function getScores() {
-    // Get stored value from client storage, if it exists
-    var highScores = localStorage.getItem("winCount");
-    // If stored value doesn't exist, set counter to 0
+    // get stored value from client storage, if it exists
+    var highScores = localStorage.getItem("high-scores");
+    // if stored value doesn't exist, set high scores to 0
     if (highScores === null) {
       highScores = 0;
     } else {
-      // If a value is retrieved from client storage set the winCounter to that value
-      winCounter = storedWins;
+      // if a value is retrieved from client storage set it to the score
+      score.textContent = highScores;
     }
-    //Render win count to page
-    win.textContent = winCounter;
   }
 
-// The startGame function is called when the start button is clicked
+// startQuiz called when the start button is clicked
 function startQuiz() {
-    timeLeft = 30;
-    // Prevents start button from being clicked when round is in progress
-    startButton.disabled = true;
+    timerCount = 30;
     startTimer()
-  }
 
+    // clear empties start menu content
+    function clear() {
+        title.textContent = "";
+        instructions.textContent = "";
+        startButton.remove();
+        score.textContent = "";
+        }
 
-
-
+    clear()
+}
 
 
 // timer that counts down from XX seconds; event initiated by clicking start btn
-function countdown() {
-    var timeLeft = 30;
-
-    // uses the `setInterval()` method to call a function to be executed every 1 second
-    var timeInterval = setInterval(function () {
-        // As long as the `timeLeft` is greater than 1
-        if (timeLeft > 1) {
-            // set the `textContent` of `timeLeft` to show the remaining seconds
-            timer.textContent = timeLeft + ' seconds remaining';
-            // Decrement `timeLeft` by 1
-            timeLeft--;
-        } else if (timeLeft === 1) {
-            // when `timeLeft` is equal to 1, rename to 'second' instead of 'seconds'
-            timer.textContent = timeLeft + ' second remaining';
-            timeLeft--;
-        } else {
-            // once `timeLeft` gets to 0, set `timer` to an empty string
-            timer.textContent = "";
-            // use `clearInterval()` to stop the timer
-            clearInterval(timeInterval);
-            // Call the `displayMessage()` function
-            displayQuizOver();
+// The setTimer function starts and stops the timer and triggers winGame() and loseGame()
+function startTimer() {
+    // Sets timer
+    timer = setInterval(function() {
+      timerCount--;
+      timerElement.textContent = timerCount;
+      if (timerCount >= 0) {
+        // Tests if win condition is met
+        if (isRight && timerCount > 0) {
+          // Clears interval and stops timer
+          clearInterval(timer);
+          winGame();
         }
-        // ticks every 1 second
-        }, 1000);
-        }
-        // Displays the quiz's final timer message
-        function displayQuizOver() {
-            var quizOverMessage = "Time's up!"
-            timer.textContent = quizOverMessage
-        }
+      }
+      // Tests if time has run out
+      if (timerCount === 0) {
+        // Clears interval
+        clearInterval(timer);
+        endGameScreen();
+      }
+    }, 1000);
+  }
 
-        console.log(timer)
+// Displays the quiz's final timer message
+function displayQuizOver() {
+    var quizOverMessage = "Time's up!"
+    timer.textContent = quizOverMessage
+}
 
-    countdown()
- 
 
-// empties the start menu; readies for question 1 and the array of objects filled w/questions
-startBtn.addEventListener("click", function start () {
-    function clear() {
-    title.textContent = "";
-    instructions.textContent = "";
-    startBtn.remove();
-    score.textContent = "";
-    }
 
-    clear()
+// listens to start button to call startGame function on click
+startButton.addEventListener("click", startQuiz);
 
-});
 
-// starts the quiz with each question as an object that is iterated until all questions are asked
-// question 1
-startBtn.addEventListener("click", function start() {
+
+
+
+
+
+
+
+
+
+
+
 
     // creates element based on tag entered by user
     var question1 = document.createElement("h3");        
@@ -171,16 +173,13 @@ startBtn.addEventListener("click", function start() {
             answer1.style.backgroundColor = "rgb(98, 248, 98)";
         });
 
-    // create listen events for clicks and run if statements for right or wrong selection
-    answer1.addEventListener("click", function() {
-       score = score - 5;
-       timeLeft = timeLeft - 5;
-       countdown(timeLeft);
-    });
 
-});
 
-// Attach event listener to start button to call startGame function on click
-startBtn.addEventListener("click", startQuiz);
+
+ 
+
+    
+
+
 
 

@@ -53,8 +53,9 @@ function getScores() {
 function startQuiz() {
     timerCount = 30;
     startTimer()
-    questionCounter()
     clearStart()
+    questionCounter()
+    answerCounter()
 }
 
 // iterates through each question to prevent redundant code
@@ -62,16 +63,22 @@ function questionCounter() {
     for (i=0; i<questionControl.length; i++)
         if (questionControl[1]) {
         nextQuestion(i)
-        console.log(questionControl[i])
         } 
 
 }
 
 // iterates through answers to prevent redundant code
-function answerCount () {
-    for (j=0; j<questionControl.length; j++)
-    console.log(questionControl)
+function answerCounter () {
+    for (j=0; j<answerControl.length; j++)
+        if (answerControl[1]) {
+        nextAnswer(j)
+        } else if (answerControl[2]) {
+        nextAnswer(j)
+        } else if (answerControl[3]) {
+        }
+    
 }
+
 
 
 // clear empties start menu content
@@ -107,7 +114,7 @@ function startTimer() {
         displayQuizOver();
         }
     }, 1000);
-    }
+}
 
 // Displays the quiz's final timer message
 function displayQuizOver() {
@@ -125,18 +132,30 @@ function nextQuestion (i) {
         } else if (i=3) {
         question.textContent = quizQuestions[2]
         }
+        
+        styleQuestion()
+}
 
+function nextAnswer (j) {
     for (let j=0; j<question1Answers.length; j++)
         if (i=1) {
         answer1.textContent = question1Answers[0]
         answer2.textContent = question1Answers[1]
         answer3.textContent = question1Answers[2]
         answer4.textContent = question1Answers[3]
-        } else if (i)
+        } else if (j=2) {
+        answer1.textContent = question2Answers[0]
+        answer2.textContent = question2Answers[1]
+        answer3.textContent = question2Answers[2]
+        answer4.textContent = question2Answers[3]    
+        } else if (j=3) {
+        answer1.textContent = question3Answers[0]
+        answer2.textContent = question3Answers[1]
+        answer3.textContent = question3Answers[2]
+        answer4.textContent = question3Answers[3] 
+        }
 
-
-
-        styleAnswer()       
+        styleAnswer()
 }
 
 function styleAnswer() {

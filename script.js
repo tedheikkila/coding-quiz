@@ -18,6 +18,8 @@ var answer4 = document.querySelector(".answer4")
 // global vars
 var timer;
 var timerCount;
+var questionControl = [1,2,3]
+var answerControl = [1,2,3]
 
 // quiz questions
 const quizQuestions = ["Commonly used data types DO NOT include: ", 
@@ -51,9 +53,26 @@ function getScores() {
 function startQuiz() {
     timerCount = 30;
     startTimer()
-    nextQuestion()
+    questionCounter()
     clearStart()
 }
+
+// iterates through each question to prevent redundant code
+function questionCounter() {
+    for (i=0; i<questionControl.length; i++)
+        if (questionControl[1]) {
+        nextQuestion(i)
+        console.log(questionControl[i])
+        } 
+
+}
+
+// iterates through answers to prevent redundant code
+function answerCount () {
+    for (j=0; j<questionControl.length; j++)
+    console.log(questionControl)
+}
+
 
 // clear empties start menu content
 function clearStart() {
@@ -97,17 +116,25 @@ function displayQuizOver() {
 }
 
 // function populates the next question (1, 2, 3, etc)
-function nextQuestion () {
+function nextQuestion (i) {
     for (let i=0; i<quizQuestions.length; i++)
-
+        if (i=1) {
         question.textContent = quizQuestions[0]
+        } else if (i=2) {
+        question.textContent = quizQuestions[1]
+        } else if (i=3) {
+        question.textContent = quizQuestions[2]
+        }
 
     for (let j=0; j<question1Answers.length; j++)
-          
+        if (i=1) {
         answer1.textContent = question1Answers[0]
         answer2.textContent = question1Answers[1]
         answer3.textContent = question1Answers[2]
         answer4.textContent = question1Answers[3]
+        } else if (i)
+
+
 
         styleAnswer()       
 }

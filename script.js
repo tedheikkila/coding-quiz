@@ -18,8 +18,6 @@ var answer4 = document.querySelector(".answer4")
 // global vars
 var timer;
 var timerCount;
-var questionControl = [1,2,3]
-var answerControl = [1,2,3]
 
 // quiz questions
 const quizQuestions = ["Commonly used data types DO NOT include: ", 
@@ -52,37 +50,16 @@ function getScores() {
 // startQuiz called when the start button is clicked
 function startQuiz() {
     timerCount = 30;
+    varScore = 30;
     startTimer()
-    clearStart()
-    questionCounter()
-    answerCounter()
-}
-
-// iterates through each question to prevent redundant code
-function questionCounter() {
-    for (i=0; i<questionControl.length; i++)
-        if (questionControl[1]) {
-        nextQuestion(i)
-        } 
-
-}
-
-// iterates through answers to prevent redundant code
-function answerCounter () {
-    for (j=0; j<answerControl.length; j++)
-        if (answerControl[1]) {
-        nextAnswer(j)
-        } else if (answerControl[2]) {
-        nextAnswer(j)
-        } else if (answerControl[3]) {
-        }
-    
+    clear()
+    question_1()
+    answer_1()
 }
 
 
-
-// clear empties start menu content
-function clearStart() {
+// clear empties start menu content and subsequent questions
+function clear() {
     title.textContent = "";
     instructions.textContent = "";
     startButton.remove();
@@ -123,42 +100,28 @@ function displayQuizOver() {
 }
 
 // function populates the next question (1, 2, 3, etc)
-function nextQuestion (i) {
-    for (let i=0; i<quizQuestions.length; i++)
-        if (i=1) {
-        question.textContent = quizQuestions[0]
-        } else if (i=2) {
-        question.textContent = quizQuestions[1]
-        } else if (i=3) {
-        question.textContent = quizQuestions[2]
-        }
-        
-        styleQuestion()
+function question_1() {
+    question.textContent = quizQuestions[0]
+    
+    styleQuestion_1()
+
 }
 
-function nextAnswer (j) {
-    for (let j=0; j<question1Answers.length; j++)
-        if (i=1) {
+function answer_1 () {
         answer1.textContent = question1Answers[0]
         answer2.textContent = question1Answers[1]
         answer3.textContent = question1Answers[2]
         answer4.textContent = question1Answers[3]
-        } else if (j=2) {
-        answer1.textContent = question2Answers[0]
-        answer2.textContent = question2Answers[1]
-        answer3.textContent = question2Answers[2]
-        answer4.textContent = question2Answers[3]    
-        } else if (j=3) {
-        answer1.textContent = question3Answers[0]
-        answer2.textContent = question3Answers[1]
-        answer3.textContent = question3Answers[2]
-        answer4.textContent = question3Answers[3] 
-        }
-
-        styleAnswer()
+    
+        styleAnswer_1()
 }
 
-function styleAnswer() {
+function styleQuestion_1() {
+
+    scoreAnswer_1()
+}
+
+function styleAnswer_1() {
     // styles answer1
     answer1.style.display = "visible"
     answer1.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
@@ -207,29 +170,45 @@ function styleAnswer() {
        answer4.style.backgroundColor = "thistle";
   });
  
-  scoreAnswer()
+  scoreAnswer_1()
 
 }
 
-function scoreAnswer() {
+function scoreAnswer_1() {
+
     answer1.addEventListener("click", function() {
         if (answer1=true) {
         feedback.textContent = "Incorrect!"
-        score -=5
-        score.textContent = score
-        console.log(score)
+        score.textContent = "-5 points"
+        timerCount -= 5
+        score -= 5
         }
     });
 
     answer2.addEventListener("click", function() {
         if (answer2=true) {
         feedback.textContent = "Correct!"
-        score = score += 5
-        score.textContent = score
+        score.textContent = "+10 points"
+        score += 10
+        //no timer deduction necessary
         }
     });
-
-
+    answer3.addEventListener("click", function() {
+        if (answer3=true) {
+        feedback.textContent = "Incorrect!"
+        score.textContent = "-5 points"
+        timerCount -= 5
+        score -=5
+        }
+    });
+    answer4.addEventListener("click", function() {
+        if (answer4=true) {
+        feedback.textContent = "Incorrect!"
+        score.textContent = "-5 points"
+        timerCount -=5
+        score -=5
+        }
+    });
 }
 
 
@@ -243,31 +222,3 @@ function scoreAnswer() {
 
 // listens to start button to call startGame function on click
 startButton.addEventListener("click", startQuiz);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
-
-   
-
-
-
-
- 
-
-    
-
-
-
-

@@ -7,6 +7,7 @@ var title = document.querySelector(".title")
 var score = document.querySelector(".score")
 var startButton = document.querySelector(".start-btn")
 var timerElement = document.querySelector(".timer")
+var question = document.querySelector(".question")
 var answers = document.querySelector(".answers")
 var answer1 = document.querySelector(".answer1")
 var answer2 = document.querySelector(".answer2")
@@ -18,15 +19,15 @@ var timer;
 var timerCount;
 
 // quiz array w/questions and answers
-var quiz = [
-    question1 = "Commonly used data types DO NOT include: ",
-    answers1 = ["A. Strings", "B. Prompts", "C. Booleans", "D. Numbers"],
-    question2 = "The condition in an if/else statement is enclosed within ______.",
-    answer2 = ["A. Quotes", "B. Parentheses", "C. Square Brackets", "D. Curly Brackets"],
-    question3 = "A very useful tool used during development and debugging for printing content to the debugger is:",
-    answer3 = ["A. Javascript", "B. console.log", "C. terminal/bash", "D. Google"],
-]
+const quizQuestions = ["Commonly used data types DO NOT include: ", 
+                        "The condition in an if/else statement is enclosed within ______.", 
+                        "A very useful tool used during development and debugging for printing content to the debugger is: ",
+                    ] 
 
+
+const question1Answers = ["A. Strings", "B. Prompts", "C. Booleans", "D. Numbers"] 
+const question2Answers = ["A. Quotes", "B. Parentheses", "C. Square Brackets", "D. Curly Brackets"]
+const question3Answers = [ "A. Javascript", "B. console.log", "C. terminal/bash", "D. Google"]
 
 // init function called when the page loads (for getting scores local storage scores)
 function init() {
@@ -50,48 +51,81 @@ function getScores() {
 function startQuiz() {
     timerCount = 30;
     startTimer()
+    nextQuestion()
+    clearStart()
+}
 
-    // clear empties start menu content
-    function clear() {
-        title.textContent = "";
-        instructions.textContent = "";
-        startButton.remove();
-        score.textContent = "";
-        }
-
-    clear()
+// clear empties start menu content
+function clearStart() {
+    title.textContent = "";
+    instructions.textContent = "";
+    startButton.remove();
+    score.textContent = "";
 }
 
 
-// timer that counts down from XX seconds; event initiated by clicking start btn
-// The setTimer function starts and stops the timer and triggers winGame() and loseGame()
-function startTimer() {
-    // Sets timer
-    timer = setInterval(function() {
-      timerCount--;
-      timerElement.textContent = timerCount;
-      if (timerCount >= 0) {
-        // Tests if win condition is met
-        if (isRight && timerCount > 0) {
-          // Clears interval and stops timer
-          clearInterval(timer);
-          winGame();
+// timer that counts down from 30 seconds; event initiated by clicking start btn
+function startTimer() {      
+    // setInterval calls function to be executed every 1 second
+    var timeInterval = setInterval(function () {
+        // when timerCount is greater than 1
+        if (timerCount > 1) {
+        // set the textContent` of timerElement to show the remaining seconds
+        timerElement.textContent = timerCount + ' seconds remaining';
+        // Decrement timerCount by 1
+        timerCount--;
+        } else if (timerCount === 1) {
+        // when timerCount is equal to 1, rename to 'second' instead of 'seconds'
+        timerElement.textContent = timerCount + ' second remaining';
+        timerCount--;
+        } else {
+        // once timerCount gets to 0, set timeCount to an empty string
+        timerElement.textContent = '';
+        // clearInterval stops the timer
+        clearInterval(timeInterval);
+        // call displayQuizOver function
+        displayQuizOver();
         }
-      }
-      // Tests if time has run out
-      if (timerCount === 0) {
-        // Clears interval
-        clearInterval(timer);
-        endGameScreen();
-      }
     }, 1000);
-  }
+    }
 
 // Displays the quiz's final timer message
 function displayQuizOver() {
     var quizOverMessage = "Time's up!"
-    timer.textContent = quizOverMessage
+    timerElement.textContent = quizOverMessage
 }
+
+// function populates the next question (1, 2, 3, etc)
+function nextQuestion () {
+    for (let i=0; i<quizQuestions.length; i++)
+
+        question.textContent = quizQuestions[0]
+
+    for (let i=0; i<question1Answers.length; i++)
+          
+        answer1.textContent = question1Answers[0]
+
+        console.log(question1Answers[0])
+
+        
+
+  
+
+
+
+    
+
+
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -112,66 +146,66 @@ startButton.addEventListener("click", startQuiz);
 
 
     // creates element based on tag entered by user
-    var question1 = document.createElement("h3");        
-    var answer1 = document.querySelector("#answer1")
-    var answer2 = document.querySelector("#answer2")
-    var answer3 = document.querySelector("#answer3")
-    var answer4 = document.querySelector("#answer4")
+    // var question1 = document.createElement("h3");        
+    // var answer1 = document.createElement("button")
+    // var answer2 = document.createElement("button")
+    // var answer3 = document.createElement("button")
+    // var answer4 = document.createElement("button")
 
 
-    // adds text content to created tag
-    question1.textContent = "Commonly used data types DO NOT include:"
-    answer1.textContent = "A. strings"
-    answer2.textContent = "B. arrays"
-    answer3.textContent = "C. prompts"
-    answer4.textContent = "D. booleans"
+    // // adds text content to created tag
+    // question1.textContent = "Commonly used data types DO NOT include:"
+    // answer1.textContent = "A. strings"
+    // answer2.textContent = "B. arrays"
+    // answer3.textContent = "C. prompts"
+    // answer4.textContent = "D. booleans"
 
-    // appends tag as child of document body
-    body.appendChild(question1);
-    body.appendChild(answer1);
-    body.appendChild(answer2);
-    body.appendChild(answer3);
-    body.appendChild(answer4);
+    // // appends tag as child of document body
+    // body.appendChild(question1);
+    // body.appendChild(answer1);
+    // body.appendChild(answer2);
+    // body.appendChild(answer3);
+    // body.appendChild(answer4);
 
-    // styles the question
-    question1.setAttribute("style", "margin:auto; width:50%; text-align:center;");
-    // styles the answers with mouseover and mouseout events
-    answer1.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
-        answer1.addEventListener("mouseover", function() {
-            answer1.style.backgroundColor = "rgb(98, 248, 98)";
-        });
+    // // styles the question
+    // question1.setAttribute("style", "margin:auto; width:50%; text-align:center;");
+    // // styles the answers with mouseover and mouseout events
+    // answer1.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
+    //     answer1.addEventListener("mouseover", function() {
+    //         answer1.style.backgroundColor = "rgb(98, 248, 98)";
+    //     });
 
-        answer1.addEventListener("mouseout", function() {
-            answer1.style.backgroundColor = "thistle";
-            });
-    answer2.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; padding:10px; background-color:thistle");
-        answer2.addEventListener("mouseover", function() {
-        answer2.style.backgroundColor = "rgb(98, 248, 98)";
-        });
+    //     answer1.addEventListener("mouseout", function() {
+    //         answer1.style.backgroundColor = "thistle";
+    //         });
+    // answer2.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; padding:10px; background-color:thistle");
+    //     answer2.addEventListener("mouseover", function() {
+    //     answer2.style.backgroundColor = "rgb(98, 248, 98)";
+    //     });
 
-         answer2.addEventListener("mouseout", function() {
-        answer2.style.backgroundColor = "thistle";
-        });
-    answer3.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; padding:10px; background-color:thistle");
-        answer3.addEventListener("mouseover", function() {
-        answer3.style.backgroundColor = "rgb(98, 248, 98)";
-    });
+    //      answer2.addEventListener("mouseout", function() {
+    //     answer2.style.backgroundColor = "thistle";
+    //     });
+    // answer3.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; padding:10px; background-color:thistle");
+    //     answer3.addEventListener("mouseover", function() {
+    //     answer3.style.backgroundColor = "rgb(98, 248, 98)";
+    // });
 
-        answer3.addEventListener("mouseout", function() {
-        answer3.style.backgroundColor = "thistle";
-    }); 
-    answer4.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; padding:10px; background-color:thistle");
-        answer4.addEventListener("mouseover", function() {
-        answer4.style.backgroundColor = "rgb(98, 248, 98)";
-        });
+    //     answer3.addEventListener("mouseout", function() {
+    //     answer3.style.backgroundColor = "thistle";
+    // }); 
+    // answer4.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; padding:10px; background-color:thistle");
+    //     answer4.addEventListener("mouseover", function() {
+    //     answer4.style.backgroundColor = "rgb(98, 248, 98)";
+    //     });
 
-        answer4.addEventListener("mouseout", function() {
-        answer4.style.backgroundColor = "thistle";
-        }); 
+    //     answer4.addEventListener("mouseout", function() {
+    //     answer4.style.backgroundColor = "thistle";
+    //     }); 
 
-    answer1.addEventListener("mouseover", function() {
-            answer1.style.backgroundColor = "rgb(98, 248, 98)";
-        });
+    // answer1.addEventListener("mouseover", function() {
+    //         answer1.style.backgroundColor = "rgb(98, 248, 98)";
+    //     });
 
 
 

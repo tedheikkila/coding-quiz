@@ -14,6 +14,7 @@ var answer1 = document.querySelector(".answer1")
 var answer2 = document.querySelector(".answer2")
 var answer3 = document.querySelector(".answer3")
 var answer4 = document.querySelector(".answer4")
+var nextButton = document.querySelector(".next-question")
 
 // global vars
 var timer;
@@ -50,21 +51,34 @@ function getScores() {
 // startQuiz called when the start button is clicked
 function startQuiz() {
     timerCount = 30;
-    varScore = 30;
     startTimer()
-    clear()
+    clearStart()
     question_1()
     answer_1()
 }
 
 
 // clear empties start menu content and subsequent questions
-function clear() {
+function clearStart() {
     title.textContent = "";
     instructions.textContent = "";
     startButton.remove();
     score.textContent = "";
     feedback.textContent = "";
+}
+
+function clearQuestion_1() {
+    answers.remove()
+    question.remove()
+
+    nextButton.setAttribute("style", "text-align: center; width:20%; margin-left:40%; margin-right:40%; margin-top:30px; padding:10px");
+    nextButton.textContent = "Continue"
+
+    nextButton.addEventListener("click", function() {
+        question_2()
+        answer_2()
+    });
+
 }
 
 
@@ -102,18 +116,17 @@ function displayQuizOver() {
 // function populates the next question (1, 2, 3, etc)
 function question_1() {
     question.textContent = quizQuestions[0]
-    
-    styleQuestion_1()
 
+    styleQuestion_1()
 }
 
 function answer_1 () {
-        answer1.textContent = question1Answers[0]
-        answer2.textContent = question1Answers[1]
-        answer3.textContent = question1Answers[2]
-        answer4.textContent = question1Answers[3]
-    
-        styleAnswer_1()
+    answer1.textContent = question1Answers[0]
+    answer2.textContent = question1Answers[1]
+    answer3.textContent = question1Answers[2]
+    answer4.textContent = question1Answers[3]
+
+    styleAnswer_1()
 }
 
 function styleQuestion_1() {
@@ -182,7 +195,9 @@ function scoreAnswer_1() {
         score.textContent = "-5 points"
         timerCount -= 5
         score -= 5
+        console.log(score)
         }
+        clearQuestion_1()
     });
 
     answer2.addEventListener("click", function() {
@@ -192,6 +207,7 @@ function scoreAnswer_1() {
         score += 10
         //no timer deduction necessary
         }
+        clearQuestion_1()
     });
     answer3.addEventListener("click", function() {
         if (answer3=true) {
@@ -200,6 +216,7 @@ function scoreAnswer_1() {
         timerCount -= 5
         score -=5
         }
+        clearQuestion_1()
     });
     answer4.addEventListener("click", function() {
         if (answer4=true) {
@@ -208,8 +225,11 @@ function scoreAnswer_1() {
         timerCount -=5
         score -=5
         }
+        clearQuestion_1()
     });
 }
+
+
 
 
 

@@ -5,6 +5,7 @@ var body = document.body
 var instructions = document.querySelector(".instructions")
 var title = document.querySelector(".title")
 var score = document.querySelector(".score")
+var feedback = document.querySelector(".feedback")
 var startButton = document.querySelector(".start-btn")
 var timerElement = document.querySelector(".timer")
 var question = document.querySelector(".question")
@@ -18,16 +19,15 @@ var answer4 = document.querySelector(".answer4")
 var timer;
 var timerCount;
 
-// quiz array w/questions and answers
+// quiz questions
 const quizQuestions = ["Commonly used data types DO NOT include: ", 
                         "The condition in an if/else statement is enclosed within ______.", 
-                        "A very useful tool used during development and debugging for printing content to the debugger is: ",
-                    ] 
+                        "A very useful tool used during development and debugging for printing content to the debugger is: ", ]
 
-
-const question1Answers = ["A. Strings", "B. Prompts", "C. Booleans", "D. Numbers"] 
-const question2Answers = ["A. Quotes", "B. Parentheses", "C. Square Brackets", "D. Curly Brackets"]
-const question3Answers = [ "A. Javascript", "B. console.log", "C. terminal/bash", "D. Google"]
+// answers for question 1, 2, and 3
+const question1Answers = ["A. Strings", "B. Prompts", "C. Booleans", "D. Numbers",] 
+const question2Answers = ["A. Quotes", "B. Parentheses", "C. Square Brackets", "D. Curly Brackets",]
+const question3Answers = [ "A. Javascript", "B. console.log", "C. terminal/bash", "D. Google",]
 
 // init function called when the page loads (for getting scores local storage scores)
 function init() {
@@ -61,6 +61,7 @@ function clearStart() {
     instructions.textContent = "";
     startButton.remove();
     score.textContent = "";
+    feedback.textContent = "";
 }
 
 
@@ -101,24 +102,89 @@ function nextQuestion () {
 
         question.textContent = quizQuestions[0]
 
-    for (let i=0; i<question1Answers.length; i++)
+    for (let j=0; j<question1Answers.length; j++)
           
         answer1.textContent = question1Answers[0]
+        answer2.textContent = question1Answers[1]
+        answer3.textContent = question1Answers[2]
+        answer4.textContent = question1Answers[3]
 
-        console.log(question1Answers[0])
+        styleAnswer()       
+}
 
-        
-
-  
-
-
-
-    
-
+function styleAnswer() {
+    // styles answer1
+    answer1.style.display = "visible"
+    answer1.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
+    // styles the answers with mouseover events
+    answer1.addEventListener("mouseover", function() {
+        answer1.style.backgroundColor = "rgb(98, 248, 98)";
+    });
+    // styles the answers with mouseout events
+    answer1.addEventListener("mouseout", function() {
+        answer1.style.backgroundColor = "thistle";
+    });
+ 
+    //styles answer2
+    answer2.style.display = "visible"
+    answer2.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
+    // styles the answers with mouseover events
+    answer2.addEventListener("mouseover", function() {
+        answer2.style.backgroundColor = "rgb(98, 248, 98)";
+    });
+    // styles the answers with mouseout events
+    answer2.addEventListener("mouseout", function() {
+        answer2.style.backgroundColor = "thistle";
+    });
+ 
+   //styles answer3
+   answer3.style.display = "visible"
+   answer3.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
+   // styles the answers with mouseover events
+   answer3.addEventListener("mouseover", function() {
+        answer3.style.backgroundColor = "rgb(98, 248, 98)";
+   });
+   // styles the answers with mouseout events
+   answer3.addEventListener("mouseout", function() {
+        answer3.style.backgroundColor = "thistle";
+   });
+ 
+  //styles answer4
+  answer4.style.display = "visible"
+  answer4.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
+  // styles the answers with mouseover events
+  answer4.addEventListener("mouseover", function() {
+       answer4.style.backgroundColor = "rgb(98, 248, 98)";
+  });
+  // styles the answers with mouseout events
+  answer4.addEventListener("mouseout", function() {
+       answer4.style.backgroundColor = "thistle";
+  });
+ 
+  scoreAnswer()
 
 }
 
+function scoreAnswer() {
+    answer1.addEventListener("click", function() {
+        if (answer1=true) {
+        feedback.textContent = "Incorrect!"
+        score -=5
+        score.textContent = score
+        console.log(score)
+        }
+    });
 
+    answer2.addEventListener("click", function() {
+        if (answer2=true) {
+        feedback.textContent = "Correct!"
+        score = score += 5
+        score.textContent = score
+        }
+    });
+
+
+}
 
 
 
@@ -145,67 +211,9 @@ startButton.addEventListener("click", startQuiz);
 
 
 
-    // creates element based on tag entered by user
-    // var question1 = document.createElement("h3");        
-    // var answer1 = document.createElement("button")
-    // var answer2 = document.createElement("button")
-    // var answer3 = document.createElement("button")
-    // var answer4 = document.createElement("button")
+   
 
-
-    // // adds text content to created tag
-    // question1.textContent = "Commonly used data types DO NOT include:"
-    // answer1.textContent = "A. strings"
-    // answer2.textContent = "B. arrays"
-    // answer3.textContent = "C. prompts"
-    // answer4.textContent = "D. booleans"
-
-    // // appends tag as child of document body
-    // body.appendChild(question1);
-    // body.appendChild(answer1);
-    // body.appendChild(answer2);
-    // body.appendChild(answer3);
-    // body.appendChild(answer4);
-
-    // // styles the question
-    // question1.setAttribute("style", "margin:auto; width:50%; text-align:center;");
-    // // styles the answers with mouseover and mouseout events
-    // answer1.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
-    //     answer1.addEventListener("mouseover", function() {
-    //         answer1.style.backgroundColor = "rgb(98, 248, 98)";
-    //     });
-
-    //     answer1.addEventListener("mouseout", function() {
-    //         answer1.style.backgroundColor = "thistle";
-    //         });
-    // answer2.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; padding:10px; background-color:thistle");
-    //     answer2.addEventListener("mouseover", function() {
-    //     answer2.style.backgroundColor = "rgb(98, 248, 98)";
-    //     });
-
-    //      answer2.addEventListener("mouseout", function() {
-    //     answer2.style.backgroundColor = "thistle";
-    //     });
-    // answer3.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; padding:10px; background-color:thistle");
-    //     answer3.addEventListener("mouseover", function() {
-    //     answer3.style.backgroundColor = "rgb(98, 248, 98)";
-    // });
-
-    //     answer3.addEventListener("mouseout", function() {
-    //     answer3.style.backgroundColor = "thistle";
-    // }); 
-    // answer4.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; padding:10px; background-color:thistle");
-    //     answer4.addEventListener("mouseover", function() {
-    //     answer4.style.backgroundColor = "rgb(98, 248, 98)";
-    //     });
-
-    //     answer4.addEventListener("mouseout", function() {
-    //     answer4.style.backgroundColor = "thistle";
-    //     }); 
-
-    // answer1.addEventListener("mouseover", function() {
-    //         answer1.style.backgroundColor = "rgb(98, 248, 98)";
-    //     });
+   
 
 
 

@@ -29,7 +29,7 @@
   }
 
   .start-screen p {
-      margin-top:30px;
+      margin-top:10px;
       font-size:15px;
   }
 
@@ -76,11 +76,18 @@
 
   .answers {
     text-align:center;
-    display:none;
+    display: hidden;
+    margin-top:20px;
   }
 
   .answer1:hover, .answer2:hover, .answer3:hover, .answer4:hover {
     background-color:rgb(98, 248, 98)
+  }
+
+  .feedback {
+    text-align:center;
+    margin-top:40px;
+    color:gray
   }
 
 

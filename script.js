@@ -352,14 +352,10 @@ function scoreAnswer_3() {
 }
 
 
-
 function scoreForm() {
     console.log(timerCount)
-    question.textContent = "Quiz Complete"
-    instructions.textContent = "Your final score is " + timerCount + " ."
-
+    
 }
-
 
 function startHighScores() {
     
@@ -377,8 +373,8 @@ function clearHighScores () {
 
 function goBack() {
 
-    goBackButton.addEventListener("click", function() {
-    startQuiz()
+    goBackButton.addEventListener("click", function(event) {
+    console.log(event)
     });
 }
 
@@ -387,7 +383,6 @@ link.addEventListener("click", startHighScores);
 
 // listens to start button to call startGame function on click
 startButton.addEventListener("click", startQuiz);
-
 
 
 // couldn't get mouseout event to work in conjunction w/click events (scoring vs styling sequence)

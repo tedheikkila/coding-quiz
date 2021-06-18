@@ -14,7 +14,16 @@ var answer1 = document.querySelector(".answer1")
 var answer2 = document.querySelector(".answer2")
 var answer3 = document.querySelector(".answer3")
 var answer4 = document.querySelector(".answer4")
+var answer5 = document.querySelector(".answe5")
+var answer6 = document.querySelector(".answer6")
+var answer7 = document.querySelector(".answer7")
+var answer8 = document.querySelector(".answer8")
+var answer9 = document.querySelector(".answe9")
+var answer10 = document.querySelector(".answer10")
+var answer11 = document.querySelector(".answer11")
+var answer12 = document.querySelector(".answer12")
 var nextButton = document.querySelector(".next-question")
+let btns = document.querySelectorAll('button')
 
 // global vars
 var timer;
@@ -67,19 +76,26 @@ function clearStart() {
     feedback.textContent = "";
 }
 
+
 function clearQuestion_1() {
 
     question.style.display = "none"
     answers.style.display = "none"
+
     
     nextButton.setAttribute("style", "text-align: center; width:20%; margin-left:40%; margin-right:40%; margin-top:30px; padding:10px");
     nextButton.textContent = "Continue"
     
     nextButton.addEventListener("click", function() {
-        answer_2()
-        question_2()
-    });
 
+        feedback.textContent = ""
+        score.textContent = ""
+        nextButton.style.display = "none"
+
+        question_2()
+        answer_2()
+        
+    });
 }
 
 function clearQuestion_2() {
@@ -91,6 +107,11 @@ function clearQuestion_2() {
     nextButton.textContent = "Continue"
     
     nextButton.addEventListener("click", function() {
+        
+        feedback.textContent = ""
+        score.textContent = ""
+        nextButton.style.display = "none"
+
         answer_3()
         question_3()
     });
@@ -156,82 +177,85 @@ function answer_1 () {
 }
 
 function answer_2 () {
-    answer1.textContent = question2Answers[0]
-    answer2.textContent = question2Answers[1]
-    answer3.textContent = question2Answers[2]
-    answer4.textContent = question2Answers[3]
+    answer5.textContent = question2Answers[0]
+    answer6.textContent = question2Answers[1]
+    answer7.textContent = question2Answers[2]
+    answer8.textContent = question2Answers[3]
     styleAnswer_2()
 }
 
 function answer_3 () {
-    answer1.textContent = question3Answers[0]
-    answer2.textContent = question3Answers[1]
-    answer3.textContent = question3Answers[2]
-    answer4.textContent = question3Answers[3]
+    answer9.textContent = question3Answers[0]
+    answer10.textContent = question3Answers[1]
+    answer11.textContent = question3Answers[2]
+    answer12.textContent = question3Answers[3]
     styleAnswer_3()
 }
 
 function styleQuestion_1() {
+    question.style.display = "block"
     scoreAnswer_1()
 }
 
 function styleQuestion_2() {
+    question.style.display = "block"
     scoreAnswer_2()
 }
 
 function styleQuestion_3() {
+    question.style.display = "block"
     scoreAnswer_3()
 }
 
 function styleAnswer_1() {
     answers.style.display = "block"
     // styles answer1
-    answer1.style.display = "block"
     answer1.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
     // styles the answers with mouseover events
-    answer1.addEventListener("mouseover", function() {
-        answer1.style.backgroundColor = "rgb(98, 248, 98)";
-    });
-    // styles the answers with mouseout events
-    answer1.addEventListener("mouseout", function() {
-        answer1.style.backgroundColor = "thistle";
-    });
+    // answer1.addEventListener("mouseover", function() {
+    //     answer1.style.backgroundColor = "rgb(98, 248, 98)";
+    // });
+    // // styles the answers with mouseout events
+    // answer1.addEventListener("mouseout", function() {
+    //     answer1.style.backgroundColor = "thistle";
+    // });
+   
  
     //styles answer2
-    answer2.style.display = "block"
     answer2.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
     // styles the answers with mouseover events
-    answer2.addEventListener("mouseover", function() {
-        answer2.style.backgroundColor = "rgb(98, 248, 98)";
-    });
-    // styles the answers with mouseout events
-    answer2.addEventListener("mouseout", function() {
-        answer2.style.backgroundColor = "thistle";
-    });
+    // answer2.addEventListener("mouseover", function() {
+    //     answer2.style.backgroundColor = "rgb(98, 248, 98)";
+    // });
+    // // styles the answers with mouseout events
+    // answer2.addEventListener("mouseout", function() {
+    //     answer2.style.backgroundColor = "thistle";
+    // });
+   
  
    //styles answer3
-   answer3.style.display = "block"
    answer3.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
    // styles the answers with mouseover events
-   answer3.addEventListener("mouseover", function() {
-        answer3.style.backgroundColor = "rgb(98, 248, 98)";
-   });
-   // styles the answers with mouseout events
-   answer3.addEventListener("mouseout", function() {
-        answer3.style.backgroundColor = "thistle";
-   });
+//    answer3.addEventListener("mouseover", function() {
+//         answer3.style.backgroundColor = "rgb(98, 248, 98)";
+//    });
+//    // styles the answers with mouseout events
+//    answer3.addEventListener("mouseout", function() {
+//         answer3.style.backgroundColor = "thistle";
+//    });
+  
  
   //styles answer4
-  answer4.style.display = "block"
   answer4.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
   // styles the answers with mouseover events
-  answer4.addEventListener("mouseover", function() {
-       answer4.style.backgroundColor = "rgb(98, 248, 98)";
-  });
-  // styles the answers with mouseout events
-  answer4.addEventListener("mouseout", function() {
-       answer4.style.backgroundColor = "thistle";
-  });
+//   answer4.addEventListener("mouseover", function() {
+//        answer4.style.backgroundColor = "rgb(98, 248, 98)";
+//   });
+//   // styles the answers with mouseout events
+//   answer4.addEventListener("mouseout", function() {
+//        answer4.style.backgroundColor = "thistle";
+//   });
+
  
   scoreAnswer_1()
 
@@ -240,52 +264,48 @@ function styleAnswer_1() {
 function styleAnswer_2() {
     answers.style.display = "block"
     // styles answer1
-    answer1.style.display = "block"
-    answer1.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
+    answer5.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
     // styles the answers with mouseover events
-    answer1.addEventListener("mouseover", function() {
-        answer1.style.backgroundColor = "rgb(98, 248, 98)";
-    });
-    // styles the answers with mouseout events
-    answer1.addEventListener("mouseout", function() {
-        answer1.style.backgroundColor = "thistle";
-    });
+    // answer1.addEventListener("mouseover", function() {
+    //     answer1.style.backgroundColor = "rgb(98, 248, 98)";
+    // });
+    // // styles the answers with mouseout events
+    // answer1.addEventListener("mouseout", function() {
+    //     answer1.style.backgroundColor = "thistle";
+    // });
  
     //styles answer2
-    answer2.style.display = "block"
-    answer2.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
+    answer6.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
     // styles the answers with mouseover events
-    answer2.addEventListener("mouseover", function() {
-        answer2.style.backgroundColor = "rgb(98, 248, 98)";
-    });
-    // styles the answers with mouseout events
-    answer2.addEventListener("mouseout", function() {
-        answer2.style.backgroundColor = "thistle";
-    });
+    // answer2.addEventListener("mouseover", function() {
+    //     answer2.style.backgroundColor = "rgb(98, 248, 98)";
+    // });
+    // // styles the answers with mouseout events
+    // answer2.addEventListener("mouseout", function() {
+    //     answer2.style.backgroundColor = "thistle";
+    // });
  
    //styles answer3
-   answer3.style.display = "block"
-   answer3.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
+   answer7.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
    // styles the answers with mouseover events
-   answer3.addEventListener("mouseover", function() {
-        answer3.style.backgroundColor = "rgb(98, 248, 98)";
-   });
-   // styles the answers with mouseout events
-   answer3.addEventListener("mouseout", function() {
-        answer3.style.backgroundColor = "thistle";
-   });
+//    answer3.addEventListener("mouseover", function() {
+//         answer3.style.backgroundColor = "rgb(98, 248, 98)";
+//    });
+//    // styles the answers with mouseout events
+//    answer3.addEventListener("mouseout", function() {
+//         answer3.style.backgroundColor = "thistle";
+//    });
  
   //styles answer4
-  answer4.style.display = "block"
-  answer4.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
+  answer8.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
   // styles the answers with mouseover events
-  answer4.addEventListener("mouseover", function() {
-       answer4.style.backgroundColor = "rgb(98, 248, 98)";
-  });
-  // styles the answers with mouseout events
-  answer4.addEventListener("mouseout", function() {
-       answer4.style.backgroundColor = "thistle";
-  });
+//   answer4.addEventListener("mouseover", function() {
+//        answer4.style.backgroundColor = "rgb(98, 248, 98)";
+//   });
+//   // styles the answers with mouseout events
+//   answer4.addEventListener("mouseout", function() {
+//        answer4.style.backgroundColor = "thistle";
+//   });
  
   scoreAnswer_2()
 
@@ -294,53 +314,50 @@ function styleAnswer_2() {
 function styleAnswer_3() {
     answers.style.display = "block"
     // styles answer1
-    answer1.style.display = "block"
-    answer1.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
+    // answer1.style.display = "block"
+    answer9.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
     // styles the answers with mouseover events
-    answer1.addEventListener("mouseover", function() {
-        answer1.style.backgroundColor = "rgb(98, 248, 98)";
-    });
-    // styles the answers with mouseout events
-    answer1.addEventListener("mouseout", function() {
-        answer1.style.backgroundColor = "thistle";
-    });
+    // answer1.addEventListener("mouseover", function() {
+    //     answer1.style.backgroundColor = "rgb(98, 248, 98)";
+    // });
+    // // styles the answers with mouseout events
+    // answer1.addEventListener("mouseout", function() {
+    //     answer1.style.backgroundColor = "thistle";
+    // });
  
     //styles answer2
-    answer2.style.display = "block"
-    answer2.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
+    answer10.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
     // styles the answers with mouseover events
-    answer2.addEventListener("mouseover", function() {
-        answer2.style.backgroundColor = "rgb(98, 248, 98)";
-    });
-    // styles the answers with mouseout events
-    answer2.addEventListener("mouseout", function() {
-        answer2.style.backgroundColor = "thistle";
-    });
+    // answer2.addEventListener("mouseover", function() {
+    //     answer2.style.backgroundColor = "rgb(98, 248, 98)";
+    // });
+    // // styles the answers with mouseout events
+    // answer2.addEventListener("mouseout", function() {
+    //     answer2.style.backgroundColor = "thistle";
+    // });
  
    //styles answer3
-   answer3.style.display = "block"
-   answer3.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
+   answer11.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
    // styles the answers with mouseover events
-   answer3.addEventListener("mouseover", function() {
-        answer3.style.backgroundColor = "rgb(98, 248, 98)";
-   });
-   // styles the answers with mouseout events
-   answer3.addEventListener("mouseout", function() {
-        answer3.style.backgroundColor = "thistle";
-   });
+//    answer3.addEventListener("mouseover", function() {
+//         answer3.style.backgroundColor = "rgb(98, 248, 98)";
+//    });
+//    // styles the answers with mouseout events
+//    answer3.addEventListener("mouseout", function() {
+//         answer3.style.backgroundColor = "thistle";
+//    });
  
   //styles answer4
-  answer4.style.display = "block"
-  answer4.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
+  answer12.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
   // styles the answers with mouseover events
-  answer4.addEventListener("mouseover", function() {
-       answer4.style.backgroundColor = "rgb(98, 248, 98)";
-  });
-  // styles the answers with mouseout events
-  answer4.addEventListener("mouseout", function() {
-       answer4.style.backgroundColor = "thistle";
-  });
- 
+//   answer4.addEventListener("mouseover", function() {
+//        answer4.style.backgroundColor = "rgb(98, 248, 98)";
+//   });
+//   // styles the answers with mouseout events
+//   answer4.addEventListener("mouseout", function() {
+//        answer4.style.backgroundColor = "thistle";
+//   });
+
   scoreAnswer_3()
 
 }
@@ -379,11 +396,12 @@ function scoreAnswer_1() {
         }
         clearQuestion_1()
     });
+
 }
 
 function scoreAnswer_2() {
 
-    answer1.addEventListener("click", function() {
+    answer5.addEventListener("click", function() {
         if (answer1=true) {
         feedback.textContent = "Incorrect"
         score.textContent = "-3 seconds"
@@ -393,15 +411,14 @@ function scoreAnswer_2() {
         clearQuestion_2()
     });
 
-    answer2.addEventListener("click", function() {
+    answer6.addEventListener("click", function() {
         if (answer2=true) {
         //no timer deduction necessary
         feedback.textContent = "Correct!"
-        
         }
         clearQuestion_2()
     });
-    answer3.addEventListener("click", function() {
+    answer7.addEventListener("click", function() {
         if (answer3=true) {
         feedback.textContent = "Incorrect"
         score.textContent = "-3 seconds"
@@ -409,7 +426,7 @@ function scoreAnswer_2() {
         }
         clearQuestion_2()
     });
-    answer4.addEventListener("click", function() {
+    answer8.addEventListener("click", function() {
         if (answer4=true) {
         feedback.textContent = "Incorrect"
         score.textContent = "-3 seconds"
@@ -421,40 +438,40 @@ function scoreAnswer_2() {
 
 function scoreAnswer_3() {
 
-    answer1.addEventListener("click", function() {
+    answer9.addEventListener("click", function() {
         if (answer1=true) {
         feedback.textContent = "Incorrect"
         score.textContent = "-3 seconds"
         timerCount -= 3
         }
-        form()
+        scoreForm()
     });
 
-    answer2.addEventListener("click", function() {
+    answer10.addEventListener("click", function() {
         if (answer2=true) {
         feedback.textContent = "Correct!"
         }
-        form()
+        scoreForm()
     });
-    answer3.addEventListener("click", function() {
+    answer11.addEventListener("click", function() {
         if (answer3=true) {
         feedback.textContent = "Incorrect"
         score.textContent = "-3 seconds"
         timerCount -= 3
         }
-        form()
+        scoreForm()
     });
-    answer4.addEventListener("click", function() {
+    answer12.addEventListener("click", function() {
         if (answer4=true) {
         feedback.textContent = "Incorrect"
         score.textContent = "-3 seconds"
         timerCount -= 3
         }
-        form()
+        scoreForm()
     });
 }
 
-function form() {
+function scoreForm() {
     
 }
 

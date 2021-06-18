@@ -2,6 +2,7 @@
 
 // global selectors
 var body = document.body
+var link = document.querySelector(".highscores")
 var instructions = document.querySelector(".instructions")
 var title = document.querySelector(".title")
 var score = document.querySelector(".score")
@@ -14,15 +15,18 @@ var answer1 = document.querySelector(".answer1")
 var answer2 = document.querySelector(".answer2")
 var answer3 = document.querySelector(".answer3")
 var answer4 = document.querySelector(".answer4")
-var answer5 = document.querySelector(".answe5")
-var answer6 = document.querySelector(".answer6")
-var answer7 = document.querySelector(".answer7")
-var answer8 = document.querySelector(".answer8")
-var answer9 = document.querySelector(".answe9")
-var answer10 = document.querySelector(".answer10")
-var answer11 = document.querySelector(".answer11")
-var answer12 = document.querySelector(".answer12")
+// var answer5 = document.querySelector(".answe5")
+// var answer6 = document.querySelector(".answer6")
+// var answer7 = document.querySelector(".answer7")
+// var answer8 = document.querySelector(".answer8")
+// var answer9 = document.querySelector(".answe9")
+// var answer10 = document.querySelector(".answer10")
+// var answer11 = document.querySelector(".answer11")
+// var answer12 = document.querySelector(".answer12")
 var nextButton = document.querySelector(".next-question")
+var highScores = document.querySelector(".high-scores")
+var clearScoresButton = document.querySelector(".clear-btn")
+var goBackButton = document.querySelector(".back-btn")
 
 // global vars
 var timer;
@@ -200,10 +204,10 @@ function question_2() {
 
 
 function answer_2 () {
-    answer5.textContent = question2Answers[0]
-    answer6.textContent = question2Answers[1]
-    answer7.textContent = question2Answers[2]
-    answer8.textContent = question2Answers[3]
+    answer1.textContent = question2Answers[0]
+    answer2.textContent = question2Answers[1]
+    answer3.textContent = question2Answers[2]
+    answer4.textContent = question2Answers[3]
     styleAnswer_2()
 }
 
@@ -215,10 +219,10 @@ function styleQuestion_2() {
 function styleAnswer_2() {
     answers.style.display = "block"
     
-    answer5.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
-    answer6.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
-    answer7.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
-    answer8.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
+    answer1.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
+    answer2.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
+    answer3.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
+    answer4.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
 
     scoreAnswer_2()
 
@@ -226,7 +230,7 @@ function styleAnswer_2() {
 
 function scoreAnswer_2() {
 
-    answer5.addEventListener("click", function() {
+    answer1.addEventListener("click", function() {
         if (answer1=true) {
         feedback.textContent = "Incorrect"
         score.textContent = "-3 seconds"
@@ -236,13 +240,13 @@ function scoreAnswer_2() {
         clearQuestion_2()
     });
 
-    answer6.addEventListener("click", function() {
+    answer2.addEventListener("click", function() {
         if (answer2=true) {
         feedback.textContent = "Correct!"
         }
         clearQuestion_2()
     });
-    answer7.addEventListener("click", function() {
+    answer3.addEventListener("click", function() {
         if (answer3=true) {
         feedback.textContent = "Incorrect"
         score.textContent = "-3 seconds"
@@ -250,7 +254,7 @@ function scoreAnswer_2() {
         }
         clearQuestion_2()
     });
-    answer8.addEventListener("click", function() {
+    answer4.addEventListener("click", function() {
         if (answer4=true) {
         feedback.textContent = "Incorrect"
         score.textContent = "-3 seconds"
@@ -286,10 +290,10 @@ function question_3() {
 }
 
 function answer_3 () {
-    answer9.textContent = question3Answers[0]
-    answer10.textContent = question3Answers[1]
-    answer11.textContent = question3Answers[2]
-    answer12.textContent = question3Answers[3]
+    answer1.textContent = question3Answers[0]
+    answer2.textContent = question3Answers[1]
+    answer3.textContent = question3Answers[2]
+    answer4.textContent = question3Answers[3]
     styleAnswer_3()
 }
 
@@ -302,10 +306,10 @@ function styleQuestion_3() {
 function styleAnswer_3() {
     answers.style.display = "block"
 
-    answer9.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
-    answer10.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
-    answer11.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
-    answer12.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
+    answer1.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
+    answer2.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
+    answer3.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
+    answer4.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
 
     scoreAnswer_3()
 
@@ -347,17 +351,44 @@ function scoreAnswer_3() {
     });
 }
 
+
+
 function scoreForm() {
     console.log(timerCount)
+    question.textContent = "Quiz Complete"
+    instructions.textContent = "Your final score is " + timerCount + " ."
+
 }
 
 
+function startHighScores() {
+    
+    clearHighScores();
+    goBack();
+}
 
+function clearHighScores () {
+    
+    clearScoresButton.addEventListener("click", function() {
+    highScores.textContent = ""
 
+    });
+}
 
+function goBack() {
+
+    goBackButton.addEventListener("click", function() {
+    startQuiz()
+    });
+}
+
+// listens to "a" link click
+link.addEventListener("click", startHighScores);
 
 // listens to start button to call startGame function on click
 startButton.addEventListener("click", startQuiz);
+
+
 
 // couldn't get mouseout event to work in conjunction w/click events (scoring vs styling sequence)
 // styles the answers with mouseover and mouseout events
@@ -368,3 +399,4 @@ startButton.addEventListener("click", startQuiz);
 //    answer1.addEventListener("mouseout", function() {
 //         answer3.style.backgroundColor = "thistle";
 //    });
+

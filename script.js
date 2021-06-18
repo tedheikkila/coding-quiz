@@ -350,9 +350,8 @@ function scoreAnswer_1() {
     answer1.addEventListener("click", function() {
         if (answer1=true) {
         feedback.textContent = "Incorrect"
-        score.textContent = "-10 points"
+        score.textContent = "-3 seconds"
         timerCount -= 3
-        score -= 10
         }
         clearQuestion_1()
     });
@@ -360,8 +359,6 @@ function scoreAnswer_1() {
     answer2.addEventListener("click", function() {
         if (answer2=true) {
         feedback.textContent = "Correct!"
-        score.textContent = "+10 points"
-        score += 10
         //no timer deduction necessary
         }
         clearQuestion_1()
@@ -369,18 +366,16 @@ function scoreAnswer_1() {
     answer3.addEventListener("click", function() {
         if (answer3=true) {
         feedback.textContent = "Incorrect"
-        score.textContent = "-10 points"
+        score.textContent = "-3 seconds"
         timerCount -= 3
-        score -= 10
         }
         clearQuestion_1()
     });
     answer4.addEventListener("click", function() {
         if (answer4=true) {
         feedback.textContent = "Incorrect"
-        score.textContent = "-10 points"
+        score.textContent = "-3 seconds"
         timerCount -= 3
-        score -= 10
         }
         clearQuestion_1()
     });
@@ -391,9 +386,8 @@ function scoreAnswer_2() {
     answer1.addEventListener("click", function() {
         if (answer1=true) {
         feedback.textContent = "Incorrect"
-        score.textContent = "-10 points"
+        score.textContent = "-3 seconds"
         timerCount -= 3
-        score -= 10
         console.log(score)
         }
         clearQuestion_2()
@@ -401,28 +395,25 @@ function scoreAnswer_2() {
 
     answer2.addEventListener("click", function() {
         if (answer2=true) {
-        feedback.textContent = "Correct!"
-        score.textContent = "+10 points"
-        score += 10
         //no timer deduction necessary
+        feedback.textContent = "Correct!"
+        
         }
         clearQuestion_2()
     });
     answer3.addEventListener("click", function() {
         if (answer3=true) {
         feedback.textContent = "Incorrect"
-        score.textContent = "-10 points"
+        score.textContent = "-3 seconds"
         timerCount -= 3
-        score -= 10
         }
         clearQuestion_2()
     });
     answer4.addEventListener("click", function() {
         if (answer4=true) {
         feedback.textContent = "Incorrect"
-        score.textContent = "-10 points"
+        score.textContent = "-3 seconds"
         timerCount -= 3
-        score -= 10
         }
         clearQuestion_2()
     });
@@ -433,9 +424,8 @@ function scoreAnswer_3() {
     answer1.addEventListener("click", function() {
         if (answer1=true) {
         feedback.textContent = "Incorrect"
-        score.textContent = "-10 points"
+        score.textContent = "-3 seconds"
         timerCount -= 3
-        score -= 10
         }
         form()
     });
@@ -443,33 +433,29 @@ function scoreAnswer_3() {
     answer2.addEventListener("click", function() {
         if (answer2=true) {
         feedback.textContent = "Correct!"
-        score.textContent = "+10 points"
-        score += 10
         }
         form()
     });
     answer3.addEventListener("click", function() {
         if (answer3=true) {
         feedback.textContent = "Incorrect"
-        score.textContent = "-10 points"
+        score.textContent = "-3 seconds"
         timerCount -= 3
-        score -= 10
         }
         form()
     });
     answer4.addEventListener("click", function() {
         if (answer4=true) {
         feedback.textContent = "Incorrect"
-        score.textContent = "-10 points"
+        score.textContent = "-3 seconds"
         timerCount -= 3
-        score -= 10
         }
         form()
     });
 }
 
 function form() {
-
+    
 }
 
 

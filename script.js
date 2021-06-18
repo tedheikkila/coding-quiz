@@ -15,14 +15,6 @@ var answer1 = document.querySelector(".answer1")
 var answer2 = document.querySelector(".answer2")
 var answer3 = document.querySelector(".answer3")
 var answer4 = document.querySelector(".answer4")
-// var answer5 = document.querySelector(".answe5")
-// var answer6 = document.querySelector(".answer6")
-// var answer7 = document.querySelector(".answer7")
-// var answer8 = document.querySelector(".answer8")
-// var answer9 = document.querySelector(".answe9")
-// var answer10 = document.querySelector(".answer10")
-// var answer11 = document.querySelector(".answer11")
-// var answer12 = document.querySelector(".answer12")
 var nextButton = document.querySelector(".next-question")
 var highScores = document.querySelector(".high-scores")
 var clearScoresButton = document.querySelector(".clear-btn")
@@ -63,7 +55,7 @@ function getScores() {
 
 // startQuiz called when the start button is clicked
 function startQuiz() {
-    timerCount = 30;
+    timerCount = 60;
     startTimer()
     clearStart()
     question_1()
@@ -108,6 +100,7 @@ function startTimer() {
 function displayQuizOver() {
     var quizOverMessage = "Time's up!"
     timerElement.textContent = quizOverMessage
+
 }
 
 function question_1() {
@@ -130,7 +123,7 @@ function styleQuestion_1() {
 
 function styleAnswer_1() {
     answers.style.display = "block"
-  
+
     answer1.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
     answer2.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
     answer3.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
@@ -143,37 +136,29 @@ function styleAnswer_1() {
 function scoreAnswer_1() {
 
     answer1.addEventListener("click", function() {
-        if (answer1=true) {
         feedback.textContent = "Incorrect"
         score.textContent = "-3 seconds"
-        timerCount -= 3
-        }
+        timerCount = timerCount - 3
         clearQuestion_1()
     });
 
     answer2.addEventListener("click", function() {
-        if (answer2=true) {
         feedback.textContent = "Correct!"
-        }
-        clearQuestion_1()
-    });
-    answer3.addEventListener("click", function() {
-        if (answer3=true) {
-        feedback.textContent = "Incorrect"
-        score.textContent = "-3 seconds"
-        timerCount -= 3
-        }
-        clearQuestion_1()
-    });
-    answer4.addEventListener("click", function() {
-        if (answer4=true) {
-        feedback.textContent = "Incorrect"
-        score.textContent = "-3 seconds"
-        timerCount -= 3
-        }
         clearQuestion_1()
     });
 
+    answer3.addEventListener("click", function() {
+        feedback.textContent = "Incorrect"
+        score.textContent = "-3 seconds"
+        timerCount = timerCount - 3
+        clearQuestion_1()
+    });
+    answer4.addEventListener("click", function() {
+        feedback.textContent = "Incorrect"
+        score.textContent = "-3 seconds"
+        timerCount = timerCount - 3
+        clearQuestion_1()
+    });
 }
 
 function clearQuestion_1() {
@@ -223,43 +208,37 @@ function styleAnswer_2() {
     answer2.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
     answer3.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
     answer4.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
-
+    
     scoreAnswer_2()
-
 }
 
 function scoreAnswer_2() {
-
     answer1.addEventListener("click", function() {
-        if (answer1=true) {
         feedback.textContent = "Incorrect"
         score.textContent = "-3 seconds"
-        timerCount -= 3
-        console.log(score)
-        }
+        timerCount = timerCount - 3
+
         clearQuestion_2()
     });
 
     answer2.addEventListener("click", function() {
-        if (answer2=true) {
         feedback.textContent = "Correct!"
-        }
+        
         clearQuestion_2()
     });
     answer3.addEventListener("click", function() {
-        if (answer3=true) {
         feedback.textContent = "Incorrect"
         score.textContent = "-3 seconds"
-        timerCount -= 3
-        }
+        timerCount = timerCount - 3
+        
         clearQuestion_2()
     });
     answer4.addEventListener("click", function() {
-        if (answer4=true) {
         feedback.textContent = "Incorrect"
         score.textContent = "-3 seconds"
-        timerCount -= 3
-        }
+        timerCount = timerCount - 3
+        
+        console.log(timerCount)
         clearQuestion_2()
     });
 }
@@ -283,7 +262,6 @@ function clearQuestion_2() {
     });
 }
 
-
 function question_3() {
     question.textContent = quizQuestions[2]
     styleQuestion_3()
@@ -302,7 +280,6 @@ function styleQuestion_3() {
     scoreAnswer_3()
 }
 
-
 function styleAnswer_3() {
     answers.style.display = "block"
 
@@ -310,88 +287,97 @@ function styleAnswer_3() {
     answer2.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
     answer3.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
     answer4.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
-
     scoreAnswer_3()
-
 }
 
 
 function scoreAnswer_3() {
-
-    answer9.addEventListener("click", function() {
-        if (answer1=true) {
+    answer1.addEventListener("click", function() {
         feedback.textContent = "Incorrect"
         score.textContent = "-3 seconds"
-        timerCount -= 3
-        }
+        timerCount = timerCount - 3
         scoreForm()
     });
 
-    answer10.addEventListener("click", function() {
-        if (answer2=true) {
+    answer2.addEventListener("click", function() {
         feedback.textContent = "Correct!"
-        }
         scoreForm()
     });
-    answer11.addEventListener("click", function() {
-        if (answer3=true) {
+    answer3.addEventListener("click", function() {
         feedback.textContent = "Incorrect"
         score.textContent = "-3 seconds"
-        timerCount -= 3
-        }
+        timerCount = timerCount - 3
         scoreForm()
     });
-    answer12.addEventListener("click", function() {
-        if (answer4=true) {
+    answer4.addEventListener("click", function() {
         feedback.textContent = "Incorrect"
         score.textContent = "-3 seconds"
-        timerCount -= 3
-        }
+        timerCount = timerCount - 3
         scoreForm()
     });
 }
-
 
 function scoreForm() {
+
     console.log(timerCount)
+
+    question.style.display = "none"
+    answers.style.display = "none"
+    feedback.textContent = ""
+
     
-}
-
-function startHighScores() {
+    if (timerCount>0) {
+        score.textContent = timerCount
+    } else score.textContent = "Error (scoring system bug not resolved)"
     
-    clearHighScores();
-    goBack();
+    nextButton.style.display = "none"
+    timerElement.style.display = "none"
 }
 
-function clearHighScores () {
+// function startHighScores() {
     
-    clearScoresButton.addEventListener("click", function() {
-    highScores.textContent = ""
+//     clearHighScores();
+//     goBack();
+// }
 
-    });
-}
+// function clearHighScores () {
+    
+//     clearScoresButton.addEventListener("click", function() {
+//     highScores.textContent = ""
 
-function goBack() {
+//     });
+// }
 
-    goBackButton.addEventListener("click", function(event) {
-    console.log(event)
-    });
-}
+// function goBack() {
 
-// listens to "a" link click
-link.addEventListener("click", startHighScores);
+//     goBackButton.addEventListener("click", function(event) {
+//     console.log(event)
+//     });
+// // }
+
+// // listens to "a" link click
+// link.addEventListener("click", startHighScores);
 
 // listens to start button to call startGame function on click
 startButton.addEventListener("click", startQuiz);
 
 
-// couldn't get mouseout event to work in conjunction w/click events (scoring vs styling sequence)
+
 // styles the answers with mouseover and mouseout events
 //    answer1.addEventListener("mouseover", function() {
-//         answer3.style.backgroundColor = "rgb(98, 248, 98)";
+//         answer1.style.backgroundColor = "rgb(98, 248, 98)";
 //    });
 //    // styles the answers with mouseout events
 //    answer1.addEventListener("mouseout", function() {
-//         answer3.style.backgroundColor = "thistle";
+//         answer1.style.backgroundColor = "thistle";
+//    });
+  
+// styles w/mouseover events
+//     answer1.addEventListener("mouseover", function() {
+//         answer1.style.backgroundColor = "rgb(98, 248, 98)";
+//    });
+//    // styles the answers with mouseout events
+//    answer1.addEventListener("mouseout", function() {
+//         answer1.style.backgroundColor = "thistle";
 //    });
 

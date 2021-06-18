@@ -23,7 +23,6 @@ var answer10 = document.querySelector(".answer10")
 var answer11 = document.querySelector(".answer11")
 var answer12 = document.querySelector(".answer12")
 var nextButton = document.querySelector(".next-question")
-let btns = document.querySelectorAll('button')
 
 // global vars
 var timer;
@@ -351,10 +350,6 @@ function scoreAnswer_3() {
 function scoreForm() {
     console.log(timerCount)
 }
-
-
-
-
 
 
 

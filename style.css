@@ -75,7 +75,7 @@
 
   .answers {
     text-align:center;
-    display: hidden;
+    display: none;
     margin-top:20px;
   }
 
@@ -88,6 +88,12 @@
     margin-top:40px;
     color:gray
   }
+
+  .instructions {
+    margin-top:30px;
+  }
+
+  
 
  
 

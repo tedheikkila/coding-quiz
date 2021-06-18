@@ -33,7 +33,7 @@
       font-size:15px;
   }
 
-  .start-btn, .back-btn, .clear-btn {
+  .start-btn, .back-btn, .clear-btn, .submit {
     margin-top: 30px;
     background-color: rgb(236, 184, 236);
     padding:10px;
@@ -79,7 +79,7 @@
     margin-top:20px;
   }
 
-  .answer1:hover, .answer2:hover, .answer3:hover, .answer4:hover {
+  .answer1:hover, .answer2:hover, .answer3:hover, .answer4:hover, .submit:hover {
     background-color:rgb(98, 248, 98)
   }
 
@@ -103,6 +103,8 @@
     font-size: 20px;
     padding:10px;
   }
+
+
 
  
 

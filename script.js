@@ -16,6 +16,9 @@ var answer2 = document.querySelector(".answer2")
 var answer3 = document.querySelector(".answer3")
 var answer4 = document.querySelector(".answer4")
 var nextButton = document.querySelector(".next-question")
+var finalScore = document.querySelector(".final-score")
+var endQuiz = document.querySelector(".end-quiz")
+var submitButton = document.querySelector(".submit")
 var highScores = document.querySelector(".high-scores")
 var clearScoresButton = document.querySelector(".clear-btn")
 var goBackButton = document.querySelector(".back-btn")
@@ -49,7 +52,7 @@ function getScores() {
       highScores = 0;
     } else {
       // if a value is retrieved from client storage set it to the score
-      score.textContent = highScores;
+      score.textContent = finalScore;
     }
   }
 
@@ -321,26 +324,38 @@ function scoreForm() {
 
     console.log(timerCount)
 
-    question.style.display = "none"
-    answers.style.display = "none"
     feedback.textContent = ""
-
-    
-    if (timerCount>0) {
-        score.textContent = timerCount
-    } else score.textContent = "Error (scoring system bug not resolved)"
-    
+    score.textContent = ""
+    question.text = ""
+    answers.style.display = "none"
     nextButton.style.display = "none"
     timerElement.style.display = "none"
+
+    endQuiz.style.display = "block"
+
+    if (timerCount>0) {
+        finalScore.textContent = timerCount
+    } else finalScore.textContent = "System error (score deductions unresolved for Questions 2 & 3)"
+
+    submitButton.addEventListener("click", function() {
+        
+        var highScore = localStorage.setItem(finalScore);
+        
+        console.log(highScore)
+        
+        highScores()
+
+    });
+    
 }
 
-// function startHighScores() {
+function highScores() {
     
-//     clearHighScores();
-//     goBack();
-// }
+    clearHighScores();
+    goBack();
+}
 
-// function clearHighScores () {
+//  function clearHighScores () {
     
 //     clearScoresButton.addEventListener("click", function() {
 //     highScores.textContent = ""
@@ -358,26 +373,18 @@ function scoreForm() {
 // // listens to "a" link click
 // link.addEventListener("click", startHighScores);
 
+
 // listens to start button to call startGame function on click
 startButton.addEventListener("click", startQuiz);
 
 
-
-// styles the answers with mouseover and mouseout events
-//    answer1.addEventListener("mouseover", function() {
-//         answer1.style.backgroundColor = "rgb(98, 248, 98)";
-//    });
-//    // styles the answers with mouseout events
-//    answer1.addEventListener("mouseout", function() {
-//         answer1.style.backgroundColor = "thistle";
-//    });
-  
-// styles w/mouseover events
-//     answer1.addEventListener("mouseover", function() {
-//         answer1.style.backgroundColor = "rgb(98, 248, 98)";
-//    });
-//    // styles the answers with mouseout events
-//    answer1.addEventListener("mouseout", function() {
-//         answer1.style.backgroundColor = "thistle";
-//    });
+// couldn't get mouseover and out events to work with click event (save for future use)
+    // styles w/mouseover events
+    //     answer1.addEventListener("mouseover", function() {
+    //         answer1.style.backgroundColor = "rgb(98, 248, 98)";
+    //    });
+    //    // styles the answers with mouseout events
+    //    answer1.addEventListener("mouseout", function() {
+    //         answer1.style.backgroundColor = "thistle";
+    //    });
 

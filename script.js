@@ -1,6 +1,6 @@
 // js file for coding quiz, TWH, 6-15-21
 
-// global selectors
+// global variables declared for specific selectors
 var body = document.body
 var link = document.querySelector(".highscores")
 var instructions = document.querySelector(".instructions")
@@ -26,36 +26,36 @@ var score_1 = document.querySelector("#score-1")
 var initials = document.querySelector("#initials")
 var scoreScreen = document.querySelector(".scores-screen")
 
-// global vars
+// global vars listed
 var timer;
 var timerCount;
 
-// quiz questions
+// quiz questions set as const 
 const quizQuestions =   ["Commonly used data types DO NOT include: ", 
                         "The condition in an if/else statement is enclosed within ______.", 
                         "A very useful tool used during development and debugging for printing content to the debugger is: ", 
                         ]
 
-// answers for question 1, 2, and 3
+// answers for question 1, 2, and 3 set as const
 const question1Answers = ["A. Strings", "B. Prompts", "C. Booleans", "D. Numbers",] 
 const question2Answers = ["A. Quotes", "B. Parentheses", "C. Square Brackets", "D. Curly Brackets",]
 const question3Answers = [ "A. Javascript", "B. console.log", "C. terminal/bash", "D. Google",]
 
-// init function called when the page loads (for getting scores local storage scores)
+// init function called when the page loads (for getting scores from local storage)
 function init() {
     getScores();
   }
 
 // gets high scores out of local storage
 function getScores() {
-    // get stored value from client storage, if it exists
-    var highScores = JSON.parse(localStorage.getItem(".high-scores"));
+    // gets stored value from storage, if it exists
+    var highScores = JSON.parse(localStorage.getItem("TWH"));
 
-    // if stored value doesn't exist, set high scores to 0
+    // if stored value doesn't exist, sets high scores to 0
     if (highScores === null) {
       highScores = 0;
     } else {
-      // if a value is retrieved from client storage set it to the score
+      // if a value is retrieved from storage set it to the score
       score_1.textContent = highScore;
     }
   }
@@ -78,15 +78,15 @@ function clearStart() {
     feedback.textContent = "";
 }
 
-// timer that counts down from 30 seconds; event initiated by clicking start btn
+// timer counts down from 60 seconds; event initiated by clicking start btn
 function startTimer() {      
     // setInterval calls function to be executed every 1 second
     var timeInterval = setInterval(function () {
         // when timerCount is greater than 1
         if (timerCount > 1) {
-        // set the textContent` of timerElement to show the remaining seconds
+        // set the textContent of timerElement to show the remaining seconds
         timerElement.textContent = timerCount + ' seconds remaining';
-        // Decrement timerCount by 1
+        // decrease timerCount by 1
         timerCount--;
         } else if (timerCount === 1) {
         // when timerCount is equal to 1, rename to 'second' instead of 'seconds'
@@ -103,18 +103,22 @@ function startTimer() {
     }, 1000);
 }
 
-// Displays the quiz's final timer message
+// displays the quiz's final timer message
 function displayQuizOver() {
     var quizOverMessage = "Time's up!"
     timerElement.textContent = quizOverMessage
-
+    if (quizOverMessage = "Time's up!") {
+        scoreForm()
+    }
 }
 
+// loads question 1
 function question_1() {
     question.textContent = quizQuestions[0]
     styleQuestion_1()
 }
 
+// loads answers from question 1
 function answer_1 () {
     answer1.textContent = question1Answers[0]
     answer2.textContent = question1Answers[1]
@@ -123,11 +127,13 @@ function answer_1 () {
     styleAnswer_1()
 }
 
+// styles question 1
 function styleQuestion_1() {
     question.style.display = "block"
     scoreAnswer_1()
 }
 
+// styles answer 1
 function styleAnswer_1() {
     answers.style.display = "block"
 
@@ -137,9 +143,9 @@ function styleAnswer_1() {
     answer4.setAttribute("style", "text-align: center; width:50%; margin-left:25%; margin-right:25%; margin-top:30px; padding:10px; background-color:thistle");
 
     scoreAnswer_1()
-
 }
 
+// evaluates if answer selected from question 1 is correct
 function scoreAnswer_1() {
 
     answer1.addEventListener("click", function() {
@@ -168,6 +174,7 @@ function scoreAnswer_1() {
     });
 }
 
+// clears out question 1, prepares question 2
 function clearQuestion_1() {
 
     question.style.display = "none"
@@ -189,12 +196,13 @@ function clearQuestion_1() {
     });
 }
 
+// loads question 2
 function question_2() {
     question.textContent = quizQuestions[1]
     styleQuestion_2()
 }
 
-
+// loads answers from question 2
 function answer_2 () {
     answer1.textContent = question2Answers[0]
     answer2.textContent = question2Answers[1]
@@ -203,11 +211,13 @@ function answer_2 () {
     styleAnswer_2()
 }
 
+// styles question 2
 function styleQuestion_2() {
     question.style.display = "block"
     scoreAnswer_2()
 }
 
+// styles answers from question 2
 function styleAnswer_2() {
     answers.style.display = "block"
     
@@ -219,6 +229,7 @@ function styleAnswer_2() {
     scoreAnswer_2()
 }
 
+// evaluates where answer selected from question 2 is correct
 function scoreAnswer_2() {
     answer1.addEventListener("click", function() {
         feedback.textContent = "Incorrect"
@@ -250,6 +261,7 @@ function scoreAnswer_2() {
     });
 }
 
+// clears out question 2, prepares question 3
 function clearQuestion_2() {
 
     question.style.display = "none"
@@ -269,11 +281,13 @@ function clearQuestion_2() {
     });
 }
 
+// loads question 3
 function question_3() {
     question.textContent = quizQuestions[2]
     styleQuestion_3()
 }
 
+// loads answers from question 3
 function answer_3 () {
     answer1.textContent = question3Answers[0]
     answer2.textContent = question3Answers[1]
@@ -282,11 +296,13 @@ function answer_3 () {
     styleAnswer_3()
 }
 
+// styles question 3
 function styleQuestion_3() {
     question.style.display = "block"
     scoreAnswer_3()
 }
 
+// styles answers from question 3
 function styleAnswer_3() {
     answers.style.display = "block"
 
@@ -297,7 +313,7 @@ function styleAnswer_3() {
     scoreAnswer_3()
 }
 
-
+// evaluates where answers selected is correct from question 3
 function scoreAnswer_3() {
     answer1.addEventListener("click", function() {
         feedback.textContent = "Incorrect"
@@ -324,13 +340,11 @@ function scoreAnswer_3() {
     });
 }
 
+// clears out previous content, displays final score based upon timer value
 function scoreForm() {
-
-    console.log(timerCount)
-
     feedback.textContent = ""
     score.textContent = ""
-    question.text = ""
+    question.textContent = ""
     answers.style.display = "none"
     nextButton.style.display = "none"
     timerElement.style.display = "none"
@@ -341,6 +355,7 @@ function scoreForm() {
         finalScore.textContent = timerCount
     } else finalScore.textContent = "System error (score deductions unresolved for Questions 2 & 3)"
 
+    // reveals the high score screen and saves TWH as key for score (the value) into local storage
     submitButton.addEventListener("click", function() {
         
         endQuiz.style.display = "none"
@@ -348,26 +363,27 @@ function scoreForm() {
         scoreScreen.style.display = "block"
 
         var highScores = localStorage.setItem("TWH", JSON.stringify(timerCount));
-
-        highScores();
+        
+        console.log(highScores)
+       
+        high_Scores();
     
     });
 
 }
 
-function highScores() {
-
-    
-    score_1.textContent = JSON.parse(localStorage.getItem(".high-scores"));
+// goBackButton reloads the page (also works based on HTML syntax); clears out the high score screen
+function high_Scores() {
 
     goBackButton.addEventListener("click", function() {
-        startQuiz()
-    
+        document.body.reload()
     });
+   
+    score_1.textContent = JSON.parse(localStorage.getItem("TWH"));
 
     clearScoresButton.addEventListener("click", function() {
         
-        scoreScreen.style.display = "none"
+        score_1.textContent = ""
 
     });
  
@@ -378,6 +394,7 @@ startButton.addEventListener("click", startQuiz);
 
 
 // mouseover and out events malfunctioned with click event (save syntax for future use)
+// also adding this feature in makes code fairly lengthy
     // styles w/mouseover events
     //     answer1.addEventListener("mouseover", function() {
     //         answer1.style.backgroundColor = "rgb(98, 248, 98)";
@@ -387,3 +404,5 @@ startButton.addEventListener("click", startQuiz);
     //         answer1.style.backgroundColor = "thistle";
     //    });
 
+// understood that this js contains redundant code (non-iterative), but I'm new to js at this time so this format made sense to me
+// proper looping will be attempted on future applications

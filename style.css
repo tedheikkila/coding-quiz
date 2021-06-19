@@ -8,16 +8,19 @@
     font-family:Arial;
   }
 
+/* high score upper left corner */
   .highscores {
     margin-left: 50px;
   }
 
+  /* timer goes upper-right hand corner*/
   .timer {
     text-align:right;
     margin-top:-15px;
     margin-right: 50px;
   }
 
+  /* everything is aligned center format */
   .start-screen {
     text-align:center;
   }
@@ -33,6 +36,7 @@
       font-size:15px;
   }
 
+  /* styles all the buttons occured w/exception to the question btns */
   .start-btn, .back-btn, .clear-btn, .submit-score {
     margin-top: 30px;
     background-color: rgb(236, 184, 236);
@@ -41,15 +45,18 @@
     border-radius: 3px;
   }
 
+  /* turns green over hover */
   .start-btn:hover, .back-btn:hover, .clear-btn:hover {
       background-color: rgb(98, 248, 98);
   }
+
 
   .scores-screen h1  {
       font-size:30px;
       margin-bottom:30px;
   }
 
+/* styles populated values of high scores */
   .score-1 {
       background-color: rgb(98, 248, 98);
       padding:10px;
@@ -67,26 +74,26 @@
     margin-top:30px;
   }
 
+  /* styles answers for answer button, note initial display none */
   .answers {
     text-align:center;
     display: none;
     margin-top:20px;
   }
 
+
   .answer1:hover, .answer2:hover, .answer3:hover, .answer4:hover, .submit-score:hover {
     background-color:rgb(98, 248, 98)
   }
 
+  /* during quiz user is notified if incorrect/correct */
   .feedback {
     text-align:center;
     margin-top:40px;
     color:gray
   }
 
-  .instructions {
-    margin-top:30px;
-  }
-
+/* sets score screen to initial display of none */
   .scores-screen {
     margin-top:10px;
     display:none;
@@ -94,6 +101,7 @@
     padding:50px;
   }
 
+/* styles end quiz screen items */
   .end-quiz {
     display:none;
     text-align:center;

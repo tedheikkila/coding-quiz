@@ -33,7 +33,7 @@
       font-size:15px;
   }
 
-  .start-btn, .back-btn, .clear-btn, .submit {
+  .start-btn, .back-btn, .clear-btn, .submit-score {
     margin-top: 30px;
     background-color: rgb(236, 184, 236);
     padding:10px;
@@ -45,16 +45,10 @@
       background-color: rgb(98, 248, 98);
   }
 
-  .scores-screen {
-    text-align:center;
-    padding:50px;
-  }
-
   .scores-screen h1  {
       font-size:30px;
       margin-bottom:30px;
   }
-
 
   .score-1 {
       background-color: rgb(98, 248, 98);
@@ -79,7 +73,7 @@
     margin-top:20px;
   }
 
-  .answer1:hover, .answer2:hover, .answer3:hover, .answer4:hover, .submit:hover {
+  .answer1:hover, .answer2:hover, .answer3:hover, .answer4:hover, .submit-score:hover {
     background-color:rgb(98, 248, 98)
   }
 
@@ -95,6 +89,9 @@
 
   .scores-screen {
     margin-top:10px;
+    display:none;
+    text-align:center;
+    padding:50px;
   }
 
   .end-quiz {

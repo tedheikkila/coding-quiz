@@ -18,10 +18,13 @@ var answer4 = document.querySelector(".answer4")
 var nextButton = document.querySelector(".next-question")
 var finalScore = document.querySelector(".final-score")
 var endQuiz = document.querySelector(".end-quiz")
-var submitButton = document.querySelector(".submit")
+var submitButton = document.querySelector(".submit-score")
 var highScores = document.querySelector(".high-scores")
 var clearScoresButton = document.querySelector(".clear-btn")
 var goBackButton = document.querySelector(".back-btn")
+var score_1 = document.querySelector("#score-1")
+var initials = document.querySelector("#initials")
+var scoreScreen = document.querySelector(".scores-screen")
 
 // global vars
 var timer;
@@ -46,13 +49,14 @@ function init() {
 // gets high scores out of local storage
 function getScores() {
     // get stored value from client storage, if it exists
-    var highScores = localStorage.getItem("high-scores");
+    var highScores = JSON.parse(localStorage.getItem(".high-scores"));
+
     // if stored value doesn't exist, set high scores to 0
     if (highScores === null) {
       highScores = 0;
     } else {
       // if a value is retrieved from client storage set it to the score
-      score.textContent = finalScore;
+      score_1.textContent = highScore;
     }
   }
 
@@ -339,46 +343,41 @@ function scoreForm() {
 
     submitButton.addEventListener("click", function() {
         
-        var highScore = localStorage.setItem(finalScore);
-        
-        console.log(highScore)
-        
-        highScores()
+        endQuiz.style.display = "none"
 
-    });
+        scoreScreen.style.display = "block"
+
+        var highScores = localStorage.setItem("TWH", JSON.stringify(timerCount));
+
+        highScores();
     
+    });
+
 }
 
 function highScores() {
+
     
-    clearHighScores();
-    goBack();
+    score_1.textContent = JSON.parse(localStorage.getItem(".high-scores"));
+
+    goBackButton.addEventListener("click", function() {
+        startQuiz()
+    
+    });
+
+    clearScoresButton.addEventListener("click", function() {
+        
+        scoreScreen.style.display = "none"
+
+    });
+ 
 }
-
-//  function clearHighScores () {
-    
-//     clearScoresButton.addEventListener("click", function() {
-//     highScores.textContent = ""
-
-//     });
-// }
-
-// function goBack() {
-
-//     goBackButton.addEventListener("click", function(event) {
-//     console.log(event)
-//     });
-// // }
-
-// // listens to "a" link click
-// link.addEventListener("click", startHighScores);
-
 
 // listens to start button to call startGame function on click
 startButton.addEventListener("click", startQuiz);
 
 
-// couldn't get mouseover and out events to work with click event (save for future use)
+// mouseover and out events malfunctioned with click event (save syntax for future use)
     // styles w/mouseover events
     //     answer1.addEventListener("mouseover", function() {
     //         answer1.style.backgroundColor = "rgb(98, 248, 98)";

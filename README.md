@@ -1,4 +1,4 @@
-# hw4-coding-quiz
+# coding-quiz
 
 Summary:
 <br>

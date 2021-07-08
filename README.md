@@ -14,7 +14,7 @@ Upon reading the quiz's instructions and with a little mental preparation, the u
 
 Application URL:
 <br>
-Check out the deployed application here: https://tedheikkila.github.io/hw4-coding-quiz/
+Check out the deployed application here: https://tedheikkila.github.io/coding-quiz/
 <br>
 
 <br>
